@@ -1,0 +1,26 @@
+imagePullSecrets:
+  - name: regcred
+replicaCount: 1
+image:
+  repository: bravelove123/devsecops_proj
+  tag: 100690f1
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+ingress:
+  enabled: false
+  className: ""
+  hosts: []
+  path: /
+  tls: []
+  annotations: {}
+  labels: {}

@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: devsecops-proj
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'http://192.168.1.189/devops/helm-charts.git'
+    targetRevision: main
+    path: .
+    helm:
+      releaseName: devsecops-proj
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

@@ -1,0 +1,5 @@
+apiVersion: v2
+name: devsecops-proj
+version: 0.1.0
+description: Helm chart to deploy static documentation site for devsecops-proj
+appVersion: "1.0.0"
